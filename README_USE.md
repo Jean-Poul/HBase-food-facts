@@ -1,4 +1,4 @@
-## To create a new table with a singl colum family:
+## To create a new table with a single colum family:
 
 ### Copy populate_single.py and Food_Display_Table.xlsx to hbase-maser node:
 ```
@@ -29,7 +29,7 @@ python3 populate_single.py
      ```
     docker-compose -f docker-compose-distributed-local.yml down
     ```
--   ### delete image of master node via docker desktop end rerun 
+-   ### delete image of master node via docker desktop
 -   ### add "- 9090:9090" after line 78 docker-compose-distributed-local.yml
 -   ### run local distributed hbase again:
     ```
@@ -55,9 +55,8 @@ python3 populate_single.py
     apt install python-happybase
     apt-get update    
     apt install python-pandas
-    apt install python-pandas
     ```
--   ### open yet another CLI of master node and run
+-   ### you can now run the script:
     ```
     python pwh.py
     ```
@@ -65,7 +64,7 @@ python3 populate_single.py
     ```
     python pwh.py -tn 'your fancy table name'
     ```
-### As we opened port 9090 in the container of master node, you can also run the script from your local machine. If your master node runs on different ports or host, you can specify that with
+### As we opened port 9090 in the container of master node, you can also run the script from your local machine. If your master node runs on different ports or host, you can specify them with:
     ```
     python pwh.py -po <port number> -ho 'host name'
     ```
