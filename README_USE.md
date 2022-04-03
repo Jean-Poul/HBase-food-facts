@@ -10,9 +10,7 @@ docker cp <path>\Food_Display_Table.xlsx <container id>:Food_Display_Table.xlsx
 ### In hbase-master node cli run:
 ```
 apt-get update
-
 apt install python3-pandas
-
 apt install python3-xlrd
 ```
 ### Now run the script:
@@ -51,6 +49,13 @@ python3 populate_single.py
 -   ### open CLI of master node and run
     ```
     hbase thrift start
+    ```
+    ### open yet another CLI of master node and install python modules:
+    ```
+    apt install python-happybase
+    apt-get update    
+    apt install python-pandas
+    apt install python-pandas
     ```
 -   ### open yet another CLI of master node and run
     ```

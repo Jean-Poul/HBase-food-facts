@@ -22,18 +22,6 @@ args=parser.parse_args()
 columns = list(food_data)
 
 def put_row(row, b):
-    key = '{Food_Code}:{Portion_Display_Name}'.format(Food_Code = row['Food_Code'], Portion_Display_Name = row['Portion_Display_Name']).decode('utf8').encode(encoding = 'UTF-8')
-    attributes= {}
-    for c in columns:
-        if c!="Food_Code" and c!="Portion_Display_Name":            
-            if row[c]!=0:
-                att_name = "{cf}:{cn}".format(cf = column_family, cn = c).decode('utf8').encode(encoding = 'UTF-8')
-                att_value=str(row[c]).decode('utf8').encode(encoding = 'UTF-8')
-                #attributes[str.encode(att_name)] = str.encode(att_value)    
-                attributes[att_name]=att_value    
-    b.put(key, attributes)
-
-def put_row(row, b):
     key = '{Food_Code}:{Portion_Display_Name}'.format(Food_Code = row['Food_Code'], Portion_Display_Name = row['Portion_Display_Name']).encode(encoding = 'UTF-8')
     attributes= {}
     for c in columns:
@@ -47,9 +35,13 @@ def put_row(row, b):
 
 connection = happybase.Connection(host = args.host, port = args.port,  autoconnect=False)
 connection.open()
-
+print()
+print("Existing tables:")
 print(connection.tables())
+print("Creating table", args.table_name)
 connection.create_table(args.table_name, {'data':dict()})
+print("\nTable created.")
+print("Existing tables:")
 print(connection.tables())
 
 table = connection.table(args.table_name)
@@ -60,7 +52,12 @@ with table.batch() as b:
         put_row(food_data.iloc[i], b)
     b.send()
 
-table.scan()
+count = 0
+for _ in table.scan(filter='FirstKeyOnlyFilter() AND KeyOnlyFilter()'):
+    count += 1
+
+print("\nCreated rows: {c}".format(c = count))
+
 connection.close()
 
 
