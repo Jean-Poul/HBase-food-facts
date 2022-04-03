@@ -18,4 +18,4 @@
 
 ##### python3 populate_single.py
 
-### Tis will run single command for each cell of each row of data set and that takes ages. Ok, not ages, but hours - many of them.
+### This will run single command for each cell of each row of data set and that takes ages. Ok, not ages, but hours - many of them.
