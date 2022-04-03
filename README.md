@@ -8,8 +8,15 @@
 - Nina Lisakowski, cph-nl163
 
 ## About this project
+
 This project will cover a simple python project to populate and read data from an HBase database.
-The HBase is runned using a docker-compose setup from this repo: https://github.com/big-data-europe/docker-hbase
-The data is based on this free public ressource from this link: https://catalog.data.gov/dataset/mypyramid-food-raw-data
+
+The HBase is runned using a docker-compose setup from this repo:
+https://github.com/big-data-europe/docker-hbase
+
+The data is based on this free public ressource from this link:
+https://catalog.data.gov/dataset/mypyramid-food-raw-data
+
+See README_USE for instructions
 
 ## Deciding row key and column families.
