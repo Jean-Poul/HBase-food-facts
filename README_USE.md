@@ -1,14 +1,13 @@
-# To create a new table with a singlr colum family:
+## To create a new table with a singl colum family:
 
-### 
-## copy populate_single.py and Food_Display_Table.xlsx to hbase-maser node:
+### Copy populate_single.py and Food_Display_Table.xlsx to hbase-maser node:
 ```
 docker cp <path>\populate_single.py <container id>:populate_single.py
 
 docker cp <path>\Food_Display_Table.xlsx <container id>:Food_Display_Table.xlsx
  ```
 
-## in hbase-master node cli run:
+### In hbase-master node cli run:
 ```
 apt-get update
 
@@ -16,7 +15,7 @@ apt install python3-pandas
 
 apt install python3-xlrd
 ```
-## now run the script:
+### Now run the script:
 
 ```
 python3 populate_single.py
@@ -61,7 +60,7 @@ python3 populate_single.py
     ```
     python pwh.py -tn 'your fancy table name'
     ```
-### As we opened port 9090 in master node, you can also run the script from your local machine. If your masster node runs on different ports or host, you can specify that with
+### As we opened port 9090 in the container of master node, you can also run the script from your local machine. If your master node runs on different ports or host, you can specify that with
     ```
-    python pwh.py -po <port no> -ho 'host name'
+    python pwh.py -po <port number> -ho 'host name'
     ```
