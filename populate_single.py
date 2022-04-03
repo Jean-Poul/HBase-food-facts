@@ -1,6 +1,7 @@
 import subprocess
 import pandas as pd
 from datetime import datetime
+import time
 
 file = "Food_Display_Table.xlsx"
 table_name = "food_single"
@@ -38,10 +39,17 @@ def put_row(row):
 
 print("Creating table...")
 exectueCmd(create_command)
+
 print("Table created")
 print("Saving data:")
+start = time.time()
 
 for i in food_data.index:
     put_row(food_data.iloc[i])
-print("Table populeted succesfully.")
+
+end = time.time()
+print("___________________________________________________")
+print("Total time: {sec} sec.".format(sec = end - start))
+print()
+
 
