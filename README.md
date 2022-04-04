@@ -24,7 +24,8 @@ The dataset contains 26 columns and 2014 rows.
 When deciding row key, the most important aspect is that we create a unique value for each row.  
 By looking at the dataset we see that food code is good candidate for our rowkey, except there is duplicate entries in this column.  
 Therefore we have choosen to combine it with the column "Portion_Display_Name" to make each rowkey unique.  
-That means our row key consist of column A "Food_Code" and column E "Portion_Display_Name" with the following syntax: "Food_Code:Portion_Display_Name"  
+That means our row key consist of column A "Food_Code" and column E "Portion_Display_Name" with the following syntax: "Food_Code:Portion_Display_Name"   
+The rowkey creation can be seen in our code on [line 25](https://github.com/Jean-Poul/HBase-food-facts/blob/0b9743a1f0a5b061220a3c8a9cb93093d0ec7be7/populate_with_happybase.py#L25)
 
 ## Suggestions For Column Families
 When suggesting column families it makes sense to group together column that have the same purpose or theme.  
