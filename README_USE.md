@@ -68,3 +68,10 @@ python3 populate_single.py
     ```
     python pwh.py -po <port number> -ho 'host name'
     ```
+    
+## You can run clinet application to look up food by Display_Name
+### run the client.py with  the Display_Name argument and optional arguments for host and port:
+    ```
+    python client.py -po <port number> -ho <host name> -dn <Display_Name> 
+    python client.py -po 9090 -ho 127.0.0.1 -dn "Latte" 
+    ```
